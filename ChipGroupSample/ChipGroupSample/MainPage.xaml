@@ -1,0 +1,30 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="ChipGroupSample.MainPage"
+             xmlns:chip="clr-namespace:Syncfusion.Maui.Core;assembly=Syncfusion.Maui.Core"
+             xmlns:local="clr-namespace:ChipGroupSample">
+    <ContentPage.BindingContext>
+        <local:ChipViewModel x:Name="viewModel"/>
+    </ContentPage.BindingContext>
+
+    
+    <StackLayout VerticalOptions="Center" Spacing="10">
+
+
+        <chip:SfChipGroup x:Name="chipgroup" HeightRequest="40" HorizontalOptions="Center"    
+                      ChipType="Choice" SelectedChipBackground="#00B0FF" 
+                      SelectionChanged="chipgroup_SelectionChanged"                 
+                      ItemsSource="{Binding DataList}" >
+            <chip:SfChipGroup.ItemTemplate>
+                <DataTemplate>
+                    <chip:SfChip Text="{Binding Name}" TextColor="{Binding SelectedColor}" 
+                                 FontAttributes="{Binding FontAttributes}"
+                                 ShowSelectionIndicator="{Binding ShowSelectionIndicator}">
+                    </chip:SfChip>
+                </DataTemplate>
+            </chip:SfChipGroup.ItemTemplate>
+        </chip:SfChipGroup>
+    </StackLayout>
+
+</ContentPage>
